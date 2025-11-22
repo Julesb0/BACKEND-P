@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: spring-boot-networking-backend
+    env: java
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/supabase-auth-java-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXP_MINUTES
+        value: 60
+      - key: FINANCE_TABLE_INCOME
+        value: ingresos
+      - key: FINANCE_TABLE_EXPENSES
+        value: gastos
+      - key: FINANCE_TABLE_MICRO
+        value: microgastos
+      - key: AI_API_URL
+        sync: false
+      - key: AI_API_KEY
+        sync: false
+      - key: AI_MODEL
+        sync: false
+      - key: AI_REFERER
+        sync: false
+      - key: AI_TITLE
+        sync: false
+      - key: MELI_SITE
+        value: MLA
+      - key: JAVA_OPTS
+        value: -Xmx512m -Xms256m
+    healthCheckPath: /actuator/health
+    diskSizeGB: 1

@@ -1,0 +1,30 @@
+# Variables de Entorno para Render
+# Copiar estas variables en el panel de Render cuando configures el deployment
+
+# Requeridas - Configuración de Supabase
+SUPABASE_URL=https://tusupabase.supabase.co
+SUPABASE_ANON_KEY=tu-anon-key-aqui
+SUPABASE_SERVICE_ROLE_KEY=tu-service-role-key-aqui
+
+# Requeridas - Configuración JWT
+JWT_SECRET=
+JWT_EXP_MINUTES=60
+
+# Opcionales - Tablas de finanzas (valores por defecto funcionan)
+FINANCE_TABLE_INCOME=ingresos
+FINANCE_TABLE_EXPENSES=gastos
+FINANCE_TABLE_MICRO=microgastos
+
+# Opcionales - Configuración de IA (si usas el asesor de finanzas)
+AI_API_URL=https://api.openai.com/v1/chat/completions
+AI_API_KEY=tu-api-key-de-openai
+AI_MODEL=gpt-3.5-turbo
+AI_REFERER=https://tudominio.com
+AI_TITLE=FinanceAdvisor
+
+# Opcional - Configuración de Mercado Libre
+MELI_SITE=MLA
+
+# Variables de Render (se configuran automáticamente)
+PORT=8080
+SPRING_PROFILES_ACTIVE=prod

@@ -1,0 +1,12 @@
+target/
+!target/supabase-auth-java-0.0.1-SNAPSHOT.jar
+.git
+.gitignore
+README.md
+.env
+.env.example
+.trae/
+.vscode/
+*.log
+.DS_Store
+Thumbs.db

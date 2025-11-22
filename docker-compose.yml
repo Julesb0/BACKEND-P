@@ -1,0 +1,26 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    image: finmarket-backend:latest
+    container_name: finmarket-backend
+    ports:
+      - "8080:8080"
+    env_file:
+      - backend/.env
+    environment:
+      JWT_SECRET: ${JWT_SECRET:-change-me-in-prod}
+      JWT_EXP_MINUTES: ${JWT_EXP_MINUTES:-60}
+      SUPABASE_URL: ${SUPABASE_URL:-}
+      SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY:-}
+      SUPABASE_SERVICE_ROLE: ${SUPABASE_SERVICE_ROLE:-}
+      AI_API_URL: ${AI_API_URL:-}
+      AI_API_KEY: ${AI_API_KEY:-}
+      AI_MODEL: ${AI_MODEL:-}
+      AI_REFERER: ${AI_REFERER:-}
+      AI_TITLE: ${AI_TITLE:-}
+      FINANCE_TABLE_INCOME: ${FINANCE_TABLE_INCOME:-ingresos}
+      FINANCE_TABLE_EXPENSES: ${FINANCE_TABLE_EXPENSES:-gastos}
+      FINANCE_TABLE_MICRO: ${FINANCE_TABLE_MICRO:-microgastos}
+      FINANCE_TABLE_USER_COL: ${FINANCE_TABLE_USER_COL:-user_id}
+    restart: unless-stopped

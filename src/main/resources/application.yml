@@ -1,0 +1,52 @@
+server:
+  port: ${PORT:8081}
+
+supabase:
+  url: ${SUPABASE_URL:}
+  anonKey: ${SUPABASE_ANON_KEY:}
+  serviceRoleKey: ${SUPABASE_SERVICE_ROLE_KEY:}
+
+spring:
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:prod}
+
+jwt:
+  secret: ${JWT_SECRET:change-me-in-dev}
+  expMinutes: ${JWT_EXP_MINUTES:60}
+
+finance:
+  tables:
+    income: ${FINANCE_TABLE_INCOME:ingresos}
+    expenses: ${FINANCE_TABLE_EXPENSES:gastos}
+    micro: ${FINANCE_TABLE_MICRO:microgastos}
+    userColumn: ${FINANCE_TABLE_USER_COL:user_id}
+
+ai:
+  apiUrl: ${AI_API_URL:}
+  apiKey: ${AI_API_KEY:}
+  model: ${AI_MODEL:}
+  referer: ${AI_REFERER:}
+  title: ${AI_TITLE:}
+
+market:
+  meliSite: ${MELI_SITE:}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.example: INFO
+    org.springframework.web: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
